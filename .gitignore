@@ -1,0 +1,6 @@
+.terraform
+.terraform.lock.hcl
+secrets.ini
+terraform.tfstate
+terraform.tfstate.backup
+wikimedia_producer_v2.py
