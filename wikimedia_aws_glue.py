@@ -15,7 +15,7 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
-data_source = glue_context.create_dynamic_frame.from_catalog(
+data_source = glueContext.create_dynamic_frame.from_catalog(
     database="wikimedia",
     table_name="wikimedia_recent_changes",
     transformation_ctx="datasource0"
