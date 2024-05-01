@@ -36,4 +36,5 @@ grouped_df = df.groupBy("type").count()
 # Write the output to S3
 grouped_df.write.mode("overwrite").parquet(output_path)
 
+#
 job.commit()

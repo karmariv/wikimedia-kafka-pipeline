@@ -6,7 +6,7 @@ from kafka import KafkaConsumer
 import pandas as pd
 import pyarrow as pa
 
-# kafka server configuration
+# kafka server configuration.
 config = ConfigParser()
 config.read("secrets.ini")
 
