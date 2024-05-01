@@ -7,7 +7,7 @@ from sseclient import SSEClient as EventSource
 # Constants
 WIKIMEDIA_CHANGES_URL = 'https://stream.wikimedia.org/v2/stream/recentchange'
 
-# kafka server configuration
+# kafka server configuration.
 config = ConfigParser()
 config.read("secrets.ini")
 

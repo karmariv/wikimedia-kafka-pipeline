@@ -69,7 +69,7 @@ resource "aws_eip" "elasticeip" {
 }
 
 
-# Create an IAM role for the EC2 instance
+# Create an IAM role for the EC2 instance.git 
 resource "aws_iam_role" "kafka_instance_role" {
   name = "kafka-instance-role"
 

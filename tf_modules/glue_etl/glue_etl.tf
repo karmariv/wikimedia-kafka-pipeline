@@ -1,4 +1,4 @@
-#variables
+#variables.
 variable "github_repo" {
     description = "Link to glue py script"
     type = string

@@ -4,7 +4,7 @@ provider "aws" {
 
 module "s3_bucket" {
     source = "./tf_modules/s3"
-    bucket_name = "demo-wikimedia-project-karla-rivas"
+    bucket_name = "demo-wikimedia-project-karla-rivas" 
 }
 
 module "ec2_instance" {

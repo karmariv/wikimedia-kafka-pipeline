@@ -4,7 +4,7 @@ variable "bucket_id" {
     type = string
 }
 
-# Create AWS Glue resources
+# Create AWS Glue resources.
 resource "aws_glue_catalog_database" "wikimedia_db" {
   name = "wikimedia_db"
 }
