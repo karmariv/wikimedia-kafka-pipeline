@@ -26,22 +26,11 @@ Terraform scripts are provided to streamline the provisioning and management of 
 > terraform apply
 ```
 - Once terraform completes the deployment copy the IP provided, this will be use later to update your Secrets.ini file
-- 
+- Next login into the ec2 instance to create the topic and start services
+- Configure your secret.ini file. Add the IP address provided in the terraform log and update the topic name
+- Start running the producer and consumer
+- Once you start getting the data you can run the glue crawler to and glue job to perform additional processing of the ingesting data.
 
-
-
-
-
-
-
-
-
-Getting Started: To set up and run this pipeline, follow these steps:
-
-Deploy the infrastructure using the provided Terraform scripts.
-Create a Kafka topic and update the secrets.ini file with the topic name.
-Run the Kafka producer script to start ingesting data from the Wikipedia stream.
-Run the Kafka consumer script to store the ingested data as Parquet files in the designated S3 bucket.
-Optionally, trigger the AWS Glue Crawler and Glue job to perform additional processing on the ingested data.
-Benefits and Use Cases: This streaming data pipeline demonstrates the power of AWS services in building scalable and robust data ingestion and processing solutions. Some potential use cases include:
-
+# Additional Resources
+- Wikimedia service documentation => https://wikitech.wikimedia.org/wiki/Event_Platform/EventStreams_HTTP_Service#Python
+- API changes documentation => https://www.mediawiki.org/wiki/API:RecentChanges#Python
