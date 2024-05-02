@@ -20,16 +20,55 @@ Terraform scripts are provided to streamline the provisioning and management of 
 # Getting Started
 - Clone git repository in your local machine
 - Run the terraform script
-```
-> terraform init
-> terraform plan
-> terraform apply
-```
 - Once terraform completes the deployment copy the IP provided, this will be use later to update your Secrets.ini file
-- Next login into the ec2 instance to create the topic and start services
+
+![image](https://github.com/karmariv/wikimedia-kafka-pipeline/assets/19791050/42d5ef57-e62c-4e0b-8ba7-1b030d0fb4a5)
+  
+- Next login into the ec2 instance start services and create the topic
+  
+![image](https://github.com/karmariv/wikimedia-kafka-pipeline/assets/19791050/4705e93d-d062-47c7-8963-6d7b24d32064)
+
+Start zookeeper:
+```
+bin/zookeeper-server-start.sh config/zookeeper.properties
+```
+
+Start Kafka:
+```
+bin/kafka-server-start.sh config/server.properties
+```
+
+Create topic
+```
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic wikimedia_changes --create --partitions 1 --replication-factor 1
+```
+
 - Configure your secret.ini file. Add the IP address provided in the terraform log and update the topic name
+
+![image](https://github.com/karmariv/wikimedia-kafka-pipeline/assets/19791050/858e6176-edf3-4692-931b-3807c0809a84)
+  
 - Start running the producer and consumer
+
+Producer:
+```
+python3 wikimedia_producer.py
+```
+
+Consumer:
+```
+python3 wikimedia_consumer.py
+```
+  
 - Once you start getting the data you can run the glue crawler to and glue job to perform additional processing of the ingesting data.
+
+Crawler:
+![image](https://github.com/karmariv/wikimedia-kafka-pipeline/assets/19791050/2a89ee80-dde5-4802-94c7-cffbe75883a5)
+
+Glue Job:
+![image](https://github.com/karmariv/wikimedia-kafka-pipeline/assets/19791050/1710bd59-1a54-4e7b-a915-98275d9c91eb)
+
+
+  
 
 # Additional Resources
 - Wikimedia service documentation => https://wikitech.wikimedia.org/wiki/Event_Platform/EventStreams_HTTP_Service#Python
